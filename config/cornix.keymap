@@ -292,7 +292,7 @@
             display-name = "Navi";
             bindings = <
 &autoShift TILDE GRAVE  &none      &kp HOME                   &kp UP_ARROW    &kp END          &kp PAGE_UP                    &none   &autoShift LS(N7) N7              &autoShift LS(N8) N8              &autoShift LS(N9) N9              &autoShift LS(N0) N0  &none
-&kp CAPS                &kp EQUAL  &kp LEFT_ARROW             &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp PAGE_DOWN                  &none   &autoShift LS(NUMBER_4) NUMBER_4  &autoShift LS(N5) N5              &autoShift LS(NUMBER_6) NUMBER_6  &none                 &none
+&kp CAPS                &kp EQUAL  &kp LEFT_ARROW             &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp PAGE_DOWN                  &none   &autoShift LS(NUMBER_4) NUMBER_4  &autoShift LS(N5) N5              &autoShift LS(NUMBER_6) NUMBER_6  &none                 &kp DEL
 &none                   &kp PLUS   &autoShift UNDER KP_MINUS  &kp ASTERISK    &kp SLASH        &none          &trans  &trans  &trans  &autoShift LS(NUMBER_1) NUMBER_1  &autoShift LS(NUMBER_2) NUMBER_2  &autoShift LS(NUMBER_3) NUMBER_3  &none                 &none
 &none                   &none      &none                      &none           &trans           &mo 4                          &mo 4   &none                             &autoShift LS(N0) N0              &none                             &none                 &none
             >;
