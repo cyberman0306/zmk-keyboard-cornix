@@ -35,7 +35,6 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
@@ -203,7 +202,7 @@
 &kp ESC    &autoShift LS(Q) Q  &autoShift LS(W) W  &autoShift LS(E) E  &autoShift LS(R) R  &autoShift LS(T) T                &autoShift LS(Y) Y  &autoShift LS(U) U  &autoShift LS(I) I          &autoShift LS(O) O            &autoShift LS(SEMICOLON) SEMICOLON  &autoShift LS(BSLH) BSLH
 &kp TAB    &autoShift LS(A) A  &autoShift LS(S) S  &autoShift LS(D) D  &autoShift LS(F) F  &autoShift LS(G) G                &autoShift LS(H) H  &autoShift LS(J) J  &autoShift LS(K) K          &autoShift LS(L) L            &autoShift LS(P) P                  &autoShift LS(SQT) SQT
 &kp LALT   &autoShift LS(Z) Z  &autoShift LS(X) X  &autoShift LS(C) C  &autoShift LS(V) V  &autoShift LS(B) B  &none  &none  &autoShift LS(N) N  &autoShift LS(M) M  &autoShift LS(COMMA) COMMA  &autoShift LS(PERIOD) PERIOD  &autoShift LS(SLASH) SLASH          &kp BACKSPACE
-&kp LSHFT  &none               &none               &kp LCTRL           &kp LEFT_WIN        &lt 5 SPACE                       &kp RIGHT_ALT       &mo 3               &lt 2 BACKSPACE             &none                         &none                               &kp ENTER
+&kp LSHFT  &kp PAGE_UP         &kp PAGE_DOWN       &kp LCTRL           &kp LEFT_WIN        &lt 5 SPACE                       &lt 5 RIGHT_ALT     &mo 3               &none                       &kp PAGE_UP                   &kp PAGE_DOWN                       &kp ENTER
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -261,10 +260,10 @@
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&trans  &kp F1  &kp F2  &kp F3   &kp F4  &kp F5                         &kp F6    &kp F7     &kp F8     &kp F9    &kp F10  &kp F11
-&trans  &kp N5  &kp N4  &kp N3   &kp N2  &kp N1                         &kp BSPC  &kp MINUS  &kp EQUAL  &kp PLUS  &kp DQT  &kp F12
-&trans  &kp N6  &kp N7  &kp N8   &kp N9  &kp N0         &trans  &trans  &kp TAB   &kp INS    &kp HOME   &kp END   &trans   &trans
-&none   &none   &none   &kp TAB  &trans  &kp BACKSPACE                  &trans    &trans     &kp N3     &none     &none    &none
+&none  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
+&none  &none   &none   &none   &none   &none                   &none   &none   &none   &none   &none    &kp F12
+&none  &none   &none   &none   &none   &none   &trans  &trans  &none   &none   &none   &none   &none    &none
+&none  &none   &none   &none   &none   &none                   &none   &none   &none   &none   &none    &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -281,20 +280,20 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR      &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4                   &none   &none  &none   &none  &none             &none
-&none           &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4                  &tog 1  &to 0  &none   &none  &none             &tog 1
-&bt BT_CLR_ALL  &none          &none          &none          &none          &none          &trans  &trans  &none   &none  &none   &none  &ext_power EP_ON  &kp CAPSLOCK
-&none           &none          &none          &none          &none          &none                          &none   &none  &kp N4  &none  &none             &none
+&bt BT_CLR      &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4                   &none  &none  &none  &none  &none  &none
+&none           &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4                  &none  &none  &none  &none  &none  &none
+&bt BT_CLR_ALL  &none          &none          &none          &none          &none          &trans  &trans  &none  &none  &none  &none  &none  &none
+&none           &none          &none          &none          &none          &none                          &none  &none  &none  &none  &none  &none
             >;
         };
 
         Navi_layer {
             display-name = "Navi";
             bindings = <
-&autoShift TILDE GRAVE  &none         &kp HOME                   &mmv MOVE_UP    &kp END          &kp PAGE_UP                    &none   &none   &none  &none  &none  &none
-&kp CAPS                &kp KP_EQUAL  &mmv MOVE_LEFT             &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp PAGE_DOWN                  &none   &none   &none  &none  &none  &none
-&none                   &kp PLUS      &autoShift UNDER KP_MINUS  &none           &none            &none          &trans  &trans  &trans  &trans  &none  &none  &none  &none
-&none                   &none         &none                      &none           &trans           &trans                         &none   &none   &none  &none  &none  &none
+&autoShift TILDE GRAVE  &none         &kp HOME                   &mmv MOVE_UP    &kp END          &kp PAGE_UP                    &none   &autoShift LS(N7) N7              &autoShift LS(N8) N8              &autoShift LS(N9) N9              &autoShift LS(N0) N0  &none
+&kp CAPS                &kp KP_EQUAL  &mmv MOVE_LEFT             &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp PAGE_DOWN                  &none   &autoShift LS(NUMBER_4) NUMBER_4  &autoShift LS(N5) N5              &autoShift LS(NUMBER_6) NUMBER_6  &none                 &none
+&none                   &kp PLUS      &autoShift UNDER KP_MINUS  &none           &none            &none          &trans  &trans  &trans  &autoShift LS(NUMBER_1) NUMBER_1  &autoShift LS(NUMBER_2) NUMBER_2  &autoShift LS(NUMBER_3) NUMBER_3  &none                 &none
+&none                   &none         &none                      &none           &trans           &mo 4                          &mo 4   &none                             &autoShift LS(N0) N0              &none                             &none                 &none
             >;
         };
 
