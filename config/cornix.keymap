@@ -149,8 +149,8 @@
         compatible = "zmk,conditional-layers";
 
         adjust_layer {
-            if-layers = <5 5>;
-            then-layer = <4>;
+            if-layers = <4 4>;
+            then-layer = <5>;
         };
     };
 
@@ -203,7 +203,7 @@
 &kp ESC    &autoShift LS(Q) Q  &autoShift LS(W) W  &autoShift LS(E) E  &autoShift LS(R) R  &autoShift LS(T) T                &autoShift LS(Y) Y  &autoShift LS(U) U  &autoShift LS(I) I          &autoShift LS(O) O            &autoShift LS(SEMICOLON) SEMICOLON  &autoShift LS(BSLH) BSLH
 &kp TAB    &autoShift LS(A) A  &autoShift LS(S) S  &autoShift LS(D) D  &autoShift LS(F) F  &autoShift LS(G) G                &autoShift LS(H) H  &autoShift LS(J) J  &autoShift LS(K) K          &autoShift LS(L) L            &autoShift LS(P) P                  &kp BACKSPACE
 &kp LALT   &autoShift LS(Z) Z  &autoShift LS(X) X  &autoShift LS(C) C  &autoShift LS(V) V  &autoShift LS(B) B  &none  &none  &autoShift LS(N) N  &autoShift LS(M) M  &autoShift LS(COMMA) COMMA  &autoShift LS(PERIOD) PERIOD  &autoShift LS(SLASH) SLASH          &kp ENTER
-&kp LSHFT  &kp PAGE_UP         &kp PAGE_DOWN       &kp LCTRL           &kp LEFT_WIN        &lt 1 SPACE                       &lt 1 RIGHT_ALT     &mo 2               &mo 4                       &kp PAGE_UP                   &kp PAGE_DOWN                       &autoShift LS(SQT) SQT
+&kp LSHFT  &kp PAGE_UP         &kp PAGE_DOWN       &kp LCTRL           &kp LEFT_WIN        &lt 1 SPACE                       &lt 1 RIGHT_ALT     &mo 2               &mo 5                       &kp PAGE_UP                   &kp PAGE_DOWN                       &autoShift LS(SQT) SQT
             >;
 
             sensor-bindings =
@@ -261,20 +261,6 @@
             >;
         };
 
-        layerF {
-            display-name = "Mix";
-            bindings = <
-&none  &kp F1  &kp F2            &kp F3          &kp F4                &kp F5                  &kp F6  &kp F7                 &kp F8           &kp F9             &kp F10  &kp F11
-&none  &none   &kp LEFT_BRACKET  &kp LEFT_BRACE  &kp LEFT_PARENTHESIS  &none                   &none   &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACE  &kp RIGHT_BRACKET  &none    &kp F12
-&none  &none   &none             &none           &none                 &none   &trans  &trans  &none   &none                  &none            &none              &none    &none
-&none  &none   &none             &none           &none                 &none                   &none   &none                  &kp N8           &none              &none    &none
-            >;
-
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp PG_UP PG_DN>;
-        };
-
         Symbol_layer {
             display-name = "Symbols";
 
@@ -294,6 +280,20 @@
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+        };
+
+        layerF {
+            display-name = "Mix";
+            bindings = <
+&none  &kp F1  &kp F2            &kp F3          &kp F4                &kp F5                  &kp F6  &kp F7                 &kp F8           &kp F9             &kp F10  &kp F11
+&none  &none   &kp LEFT_BRACKET  &kp LEFT_BRACE  &kp LEFT_PARENTHESIS  &none                   &none   &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACE  &kp RIGHT_BRACKET  &none    &kp F12
+&none  &none   &none             &none           &none                 &none   &trans  &trans  &none   &none                  &none            &none              &none    &none
+&none  &none   &none             &none           &none                 &none                   &none   &none                  &kp N8           &none              &none    &none
+            >;
+
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp PG_UP PG_DN>;
         };
     };
 };
