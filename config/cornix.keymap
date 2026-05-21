@@ -149,7 +149,7 @@
         compatible = "zmk,conditional-layers";
 
         adjust_layer {
-            if-layers = <3 2>;
+            if-layers = <5 5>;
             then-layer = <4>;
         };
     };
@@ -160,19 +160,19 @@
         cb_ltm {
             bindings = <&kp ESC>;
             key-positions = <2 4>;
-            layers = <0 1>;
+            layers = <0>;
         };
 
         cb_lm {
             bindings = <&kp TAB>;
             key-positions = <14 16>;
-            layers = <0 1>;
+            layers = <0>;
         };
 
         cb_enter {
             bindings = <&kp RET>;
             key-positions = <21 19>;
-            layers = <0 1>;
+            layers = <0>;
         };
 
         layer3 {
@@ -203,30 +203,72 @@
 &kp ESC    &autoShift LS(Q) Q  &autoShift LS(W) W  &autoShift LS(E) E  &autoShift LS(R) R  &autoShift LS(T) T                &autoShift LS(Y) Y  &autoShift LS(U) U  &autoShift LS(I) I          &autoShift LS(O) O            &autoShift LS(SEMICOLON) SEMICOLON  &autoShift LS(BSLH) BSLH
 &kp TAB    &autoShift LS(A) A  &autoShift LS(S) S  &autoShift LS(D) D  &autoShift LS(F) F  &autoShift LS(G) G                &autoShift LS(H) H  &autoShift LS(J) J  &autoShift LS(K) K          &autoShift LS(L) L            &autoShift LS(P) P                  &kp BACKSPACE
 &kp LALT   &autoShift LS(Z) Z  &autoShift LS(X) X  &autoShift LS(C) C  &autoShift LS(V) V  &autoShift LS(B) B  &none  &none  &autoShift LS(N) N  &autoShift LS(M) M  &autoShift LS(COMMA) COMMA  &autoShift LS(PERIOD) PERIOD  &autoShift LS(SLASH) SLASH          &kp ENTER
-&kp LSHFT  &kp PAGE_UP         &kp PAGE_DOWN       &kp LCTRL           &kp LEFT_WIN        &lt 5 SPACE                       &lt 5 RIGHT_ALT     &mo 3               &mo 8                       &kp PAGE_UP                   &kp PAGE_DOWN                       &autoShift LS(SQT) SQT
+&kp LSHFT  &kp PAGE_UP         &kp PAGE_DOWN       &kp LCTRL           &kp LEFT_WIN        &lt 1 SPACE                       &lt 1 RIGHT_ALT     &mo 2               &mo 4                       &kp PAGE_UP                   &kp PAGE_DOWN                       &autoShift LS(SQT) SQT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
-        win_layer {
-            display-name = "Windows";
+        Navi_layer {
+            display-name = "Navi";
+            bindings = <
+&autoShift TILDE GRAVE  &none      &kp HOME                   &kp UP_ARROW    &kp END          &kp PAGE_UP                    &none   &autoShift LS(N7) N7              &autoShift LS(N8) N8              &autoShift LS(N9) N9              &autoShift LS(N0) N0  &none
+&kp CAPS                &kp EQUAL  &kp LEFT_ARROW             &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp PAGE_DOWN                  &none   &autoShift LS(NUMBER_4) NUMBER_4  &autoShift LS(N5) N5              &autoShift LS(NUMBER_6) NUMBER_6  &none                 &kp DEL
+&none                   &kp PLUS   &autoShift UNDER KP_MINUS  &kp ASTERISK    &kp SLASH        &none          &trans  &trans  &trans  &autoShift LS(NUMBER_1) NUMBER_1  &autoShift LS(NUMBER_2) NUMBER_2  &autoShift LS(NUMBER_3) NUMBER_3  &none                 &none
+&none                   &none      &none                      &none           &trans           &mo 3                          &mo 3   &none                             &autoShift LS(N0) N0              &none                             &none                 &none
+            >;
+        };
+
+        Mix_layer {
+            display-name = "Mix";
 
             // ------------------------------------------------------------------------------------------------------------
-            // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |       |
-            // |  ESC  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   | BKSPC |
-            // |  TAB  |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   |   '   |
-            // | SHIFT |  Z  |  X  |  C   |  V   |  B   |  MUTE  |  |       |  N   |  M    |  ,    |  .   |   /   | SHIFT |
-            //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
+            // | BTCLR | BT1  | BT2  |  BT3  |  BT4  |  BT5 |                |      |      |       |      |       |       |
+            // |       | INS  | PSCR | GUI   |       |      |                | PGUP |      |   ^   |      |       |       |
+            // |       | ALT  | CTRL | SHIFT |       | CAPS |                | PGDN |   <- |   v   |  ->  |  DEL  | BKSPC |
+            // |       | UNDO | CUT  | COPY  | PASTE |      |      |  |      |      |      |       |      |       |       |
+            //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&trans    &trans         &trans        &trans         &trans               &trans                  &trans  &trans               &trans         &trans        &trans            &trans
-&trans    &hm_l LCTRL A  &hm_l LALT S  &hm_l LCTRL D  &hm_shift_l LSHFT F  &trans                  &trans  &hm_shift_r RSHFT J  &hm_r RCTRL K  &hm_r RALT L  &hm_r RCTRL SEMI  &trans
-&kp LGUI  &trans         &trans        &trans         &trans               &trans  &trans  &trans  &trans  &trans               &trans         &trans        &trans            &trans
-&none     &none          &none         &trans         &trans               &trans                  &trans  &trans               &trans         &none         &none             &none
+&none  &none  &none           &mmv MOVE_UP    &none            &none                  &none  &none     &none         &none  &none  &none
+&none  &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none                  &none  &mkp MB1  &mkp MB2      &none  &none  &none
+&none  &none  &none           &none           &none            &none  &trans  &trans  &none  &none     &none         &none  &none  &none
+&none  &none  &none           &none           &none            &none                  &none  &none     &kp NUMBER_2  &none  &none  &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+        };
+
+        Adjust_layer {
+            display-name = "Adjust";
+
+            // ----------------------------------------------------------------------------------------------------------------------------
+            // | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
+            // | moDEBUG| RGB_HUD | RGB_HUI | RGB_SAD | RGB_SAI | RGB_EFF |                  |      |      |       |      |       |       |
+            // | EXTPWR | RGB_BRD | RGB_BRI |         |         |         |                  |      |      |       |      |       |       |
+            // |        |         |         |         |         |         | RGB_TOG | |      |      |      |       |      |       |       |
+            //                    |         |         |         |         |         | |      |      |      |       |      |
+
+            bindings = <
+&bt BT_CLR      &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4                   &out OUT_TOG  &none  &none         &none  &none  &none
+&none           &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4                  &none         &none  &none         &none  &none  &none
+&bt BT_CLR_ALL  &none          &none          &none          &none          &none          &trans  &trans  &none         &none  &none         &none  &none  &none
+&none           &none          &none          &none          &none          &none                          &none         &none  &kp NUMBER_3  &none  &none  &none
+            >;
+        };
+
+        layerF {
+            display-name = "Mix";
+            bindings = <
+&none  &kp F1  &kp F2            &kp F3          &kp F4                &kp F5                  &kp F6  &kp F7                 &kp F8           &kp F9             &kp F10  &kp F11
+&none  &none   &kp LEFT_BRACKET  &kp LEFT_BRACE  &kp LEFT_PARENTHESIS  &none                   &none   &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACE  &kp RIGHT_BRACKET  &none    &kp F12
+&none  &none   &none             &none           &none                 &none   &trans  &trans  &none   &none                  &none            &none              &none    &none
+&none  &none   &none             &none           &none                 &none                   &none   &none                  &kp N8           &none              &none    &none
+            >;
+
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp PG_UP PG_DN>;
         };
 
         Symbol_layer {
@@ -248,96 +290,6 @@
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
-        };
-
-        Mix_layer {
-            display-name = "Mix";
-
-            // ------------------------------------------------------------------------------------------------------------
-            // | BTCLR | BT1  | BT2  |  BT3  |  BT4  |  BT5 |                |      |      |       |      |       |       |
-            // |       | INS  | PSCR | GUI   |       |      |                | PGUP |      |   ^   |      |       |       |
-            // |       | ALT  | CTRL | SHIFT |       | CAPS |                | PGDN |   <- |   v   |  ->  |  DEL  | BKSPC |
-            // |       | UNDO | CUT  | COPY  | PASTE |      |      |  |      |      |      |       |      |       |       |
-            //                |      |       |       |      |      |  |      |      |      |       |      |
-
-            bindings = <
-&none  &none  &none           &mmv MOVE_UP    &none            &none                  &none  &none     &none         &none  &none  &none
-&none  &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none                  &none  &mkp MB1  &mkp MB2      &none  &none  &none
-&none  &none  &none           &none           &none            &none  &trans  &trans  &none  &none     &none         &none  &none  &none
-&none  &none  &none           &none           &none            &none                  &none  &none     &kp NUMBER_3  &none  &none  &none
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
-        };
-
-        Adjust_layer {
-            display-name = "Adjust";
-
-            // ----------------------------------------------------------------------------------------------------------------------------
-            // | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
-            // | moDEBUG| RGB_HUD | RGB_HUI | RGB_SAD | RGB_SAI | RGB_EFF |                  |      |      |       |      |       |       |
-            // | EXTPWR | RGB_BRD | RGB_BRI |         |         |         |                  |      |      |       |      |       |       |
-            // |        |         |         |         |         |         | RGB_TOG | |      |      |      |       |      |       |       |
-            //                    |         |         |         |         |         | |      |      |      |       |      |
-
-            bindings = <
-&bt BT_CLR      &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4                   &out OUT_TOG  &none  &none         &none  &none  &none
-&none           &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4                  &none         &none  &none         &none  &none  &none
-&bt BT_CLR_ALL  &none          &none          &none          &none          &none          &trans  &trans  &none         &none  &none         &none  &none  &none
-&none           &none          &none          &none          &none          &none                          &none         &none  &kp NUMBER_4  &none  &none  &none
-            >;
-        };
-
-        Navi_layer {
-            display-name = "Navi";
-            bindings = <
-&autoShift TILDE GRAVE  &none      &kp HOME                   &kp UP_ARROW    &kp END          &kp PAGE_UP                    &none   &autoShift LS(N7) N7              &autoShift LS(N8) N8              &autoShift LS(N9) N9              &autoShift LS(N0) N0  &none
-&kp CAPS                &kp EQUAL  &kp LEFT_ARROW             &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp PAGE_DOWN                  &none   &autoShift LS(NUMBER_4) NUMBER_4  &autoShift LS(N5) N5              &autoShift LS(NUMBER_6) NUMBER_6  &none                 &kp DEL
-&none                   &kp PLUS   &autoShift UNDER KP_MINUS  &kp ASTERISK    &kp SLASH        &none          &trans  &trans  &trans  &autoShift LS(NUMBER_1) NUMBER_1  &autoShift LS(NUMBER_2) NUMBER_2  &autoShift LS(NUMBER_3) NUMBER_3  &none                 &none
-&none                   &none      &none                      &none           &trans           &mo 4                          &mo 4   &none                             &autoShift LS(N0) N0              &none                             &none                 &none
-            >;
-        };
-
-        KeyPad_layer {
-            display-name = "NumPad";
-            bindings = <
-&mo 7  &none  &none  &none  &none  &none                  &kp KP_N7        &kp KP_N8        &kp KP_N9        &kp KP_MINUS  &kp KP_MULTIPLY  &none
-&none  &none  &none  &none  &none  &none                  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_N6        &kp KP_PLUS   &kp KP_DIVIDE    &none
-&none  &none  &none  &none  &none  &none  &trans  &trans  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_N3        &none         &none            &none
-&none  &none  &none  &none  &none  &mo 7                  &kp KP_N0        &kp KP_DOT       &kp KP_NUMBER_0  &none         &none            &none
-            >;
-        };
-
-        Debug_layer {
-            display-name = "Debug";
-
-            // ----------------------------------------------------------------------------------------------------------------------------
-            // | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
-            // | EXTPWR | BTCLR | RGB_HUI | RGB_SAD | RGB_SAI | RGB_EFF |                  |      |      |       |      |       |       |
-            // |        | RGB_BRD | RGB_BRI |         |         |         |                  |      |      |       |      |       |       |
-            // |        |         |         |         |         |         | RGB_TOG | |      |      |      |       |      |       |       |
-            //                    |         |         |         |         |         | |      |      |      |       |      |
-
-            bindings = <
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                  &none        &none  &none   &none  &none  &none
-&none       &none         &none         &none         &none         &none                         &none        &none  &none   &none  &none  &none
-&none       &none         &none         &none         &none         &bootloader   &trans  &trans  &bootloader  &none  &none   &none  &none  &none
-&none       &none         &none         &none         &none         &none                         &none        &none  &kp N7  &none  &none  &none
-            >;
-        };
-
-        layer_8 {
-            display-name = "Mix";
-            bindings = <
-&none  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
-&none  &none   &none   &none   &none   &none                   &none   &none   &none   &none   &none    &kp F12
-&none  &none   &none   &none   &none   &none   &trans  &trans  &none   &none   &none   &none   &none    &none
-&none  &none   &none   &none   &none   &none                   &none   &none   &kp N8  &none   &none    &none
-            >;
-
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp PG_UP PG_DN>;
         };
     };
 };
