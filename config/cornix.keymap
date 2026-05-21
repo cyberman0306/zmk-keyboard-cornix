@@ -206,7 +206,9 @@
 &kp LSHFT  &kp PAGE_UP         &kp PAGE_DOWN       &kp LCTRL           &kp LEFT_WIN        &lt 1 SPACE                       &lt 1 RIGHT_ALT     &mo 2               &mo 4                       &kp PAGE_UP                   &kp PAGE_DOWN                       &autoShift LS(SQT) SQT
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp PG_DN PG_UP>;
         };
 
         Navi_layer {
@@ -236,7 +238,9 @@
 &none  &none  &none           &none           &none            &none                  &none  &none     &kp NUMBER_2  &none  &none  &none
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp PG_DN PG_UP>;
         };
 
         Adjust_layer {
