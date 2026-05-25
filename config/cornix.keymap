@@ -166,7 +166,21 @@
 &kp ESC    &autoShift LS(Q) Q  &autoShift LS(W) W  &autoShift LS(E) E  &autoShift LS(R) R  &autoShift LS(T) T                &autoShift LS(Y) Y  &autoShift LS(U) U  &autoShift LS(I) I          &autoShift LS(O) O            &autoShift LS(SEMICOLON) SEMICOLON  &autoShift LS(BSLH) BSLH
 &kp TAB    &autoShift LS(A) A  &autoShift LS(S) S  &autoShift LS(D) D  &autoShift LS(F) F  &autoShift LS(G) G                &autoShift LS(H) H  &autoShift LS(J) J  &autoShift LS(K) K          &autoShift LS(L) L            &autoShift LS(P) P                  &kp BACKSPACE
 &kp LALT   &autoShift LS(Z) Z  &autoShift LS(X) X  &autoShift LS(C) C  &autoShift LS(V) V  &autoShift LS(B) B  &none  &none  &autoShift LS(N) N  &autoShift LS(M) M  &autoShift LS(COMMA) COMMA  &autoShift LS(PERIOD) PERIOD  &autoShift LS(SLASH) SLASH          &autoShift LS(SQT) SQT
-&kp LSHFT  &kp PAGE_UP         &kp PAGE_DOWN       &kp LCTRL           &kp LEFT_WIN        &lt 1 SPACE                       &lt 1 RIGHT_ALT     &mo 2               &mo 5                       &kp PAGE_UP                   &kp PAGE_DOWN                       &kp ENTER
+&kp LSHFT  &kp PAGE_UP         &kp PAGE_DOWN       &kp LCTRL           &kp LEFT_WIN        &lt 2 SPACE                       &lt 2 RIGHT_ALT     &mo 3               &mo 5                       &kp PAGE_UP                   &kp PAGE_DOWN                       &kp ENTER
+            >;
+
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp PG_DN PG_UP>;
+        };
+
+        autooffLayer {
+            display-name = "Base";
+            bindings = <
+&kp ESC    &kp Q        &kp W          &kp E      &kp R         &kp T                      &kp Y            &kp U  &kp I      &kp O        &kp SEMI       &kp BSLH
+&kp TAB    &kp A        &kp S          &kp D      &kp F         &kp G                      &kp H            &kp J  &kp K      &kp L        &kp P          &kp BACKSPACE
+&kp LALT   &kp Z        &kp X          &kp C      &kp V         &kp B        &none  &none  &kp N            &kp M  &kp COMMA  &kp DOT      &kp FSLH       &kp APOS
+&kp LSHFT  &kp PAGE_UP  &kp PAGE_DOWN  &kp LCTRL  &kp LEFT_WIN  &lt 2 SPACE                &lt 2 RIGHT_ALT  &mo 3  &mo 5      &kp PAGE_UP  &kp PAGE_DOWN  &kp ENTER
             >;
 
             sensor-bindings =
@@ -180,7 +194,7 @@
 &autoShift TILDE GRAVE  &none      &kp HOME                   &kp UP_ARROW    &kp END          &kp PAGE_UP                    &none   &autoShift LS(N7) N7              &autoShift LS(N8) N8              &autoShift LS(N9) N9              &autoShift LS(N0) N0  &none
 &kp CAPS                &kp EQUAL  &kp LEFT_ARROW             &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp PAGE_DOWN                  &none   &autoShift LS(NUMBER_4) NUMBER_4  &autoShift LS(N5) N5              &autoShift LS(NUMBER_6) NUMBER_6  &none                 &kp DEL
 &none                   &kp PLUS   &autoShift UNDER KP_MINUS  &kp ASTERISK    &kp SLASH        &none          &trans  &trans  &trans  &autoShift LS(NUMBER_1) NUMBER_1  &autoShift LS(NUMBER_2) NUMBER_2  &autoShift LS(NUMBER_3) NUMBER_3  &none                 &none
-&none                   &none      &none                      &none           &trans           &mo 3                          &mo 3   &none                             &autoShift LS(N0) N0              &none                             &none                 &none
+&none                   &none      &none                      &none           &trans           &mo 4                          &mo 4   &none                             &autoShift LS(N0) N0              &none                             &none                 &none
             >;
         };
 
@@ -218,31 +232,10 @@
 
             bindings = <
 &bt BT_CLR      &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4                   &out OUT_TOG  &none  &none         &none  &none  &none
-&none           &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4                  &none         &none  &none         &none  &none  &none
-&bt BT_CLR_ALL  &none          &none          &none          &none          &none          &trans  &trans  &none         &none  &none         &none  &none  &none
-&none           &none          &none          &none          &none          &none                          &none         &none  &kp NUMBER_3  &none  &none  &none
+&bt BT_CLR_ALL  &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4                  &none         &none  &none         &none  &none  &none
+&to 0           &none          &none          &none          &none          &none          &trans  &trans  &none         &none  &none         &none  &none  &none
+&to 1           &none          &none          &none          &none          &none                          &none         &none  &kp NUMBER_3  &none  &none  &none
             >;
-        };
-
-        Symbol_layer {
-            display-name = "Symbols";
-
-            // TODO: Some binds are waiting for shifted keycode support.
-            // -------------------------------
-            // |       |  F1 |  F2 |  F3  |  F4  |  F5  |                   |  F6  |  F7   |  F8   |  F9  |  F10  |  F11  |
-            // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |  F12  |
-            // |       |  !  |  @  |  #   |  $   |  %   |                   |  ^   |  &    |  *    |  (   |   )   |   |   |
-            // |       |  =  |  -  |  +   |  {   |  }   |        |  |       |  [   |  ]    |  ;    |  :   |   \   |       |
-            //               |     |      |      |      |        |  |       |      |       |       |      |
-
-            bindings = <
-&none  &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                  &kp CARET  &kp AMPS      &kp ASTRK  &kp LPAR   &kp RPAR  &kp PIPE
-&none  &none     &kp LBKT  &kp RBKT  &kp LBRC  &kp RBRC                   &kp EQUAL  &kp UNDER     &kp MINUS  &kp PLUS   &kp DQT   &kp SQT
-&none  &none     &kp RBKT  &kp RPAR  &kp PIPE  &kp BSLH   &trans  &trans  &kp FSLH   &kp QUESTION  &kp GRAVE  &kp TILDE  &kp SQT   &none
-&none  &none     &none     &none     &trans    &trans                     &kp TILDE  &trans        &kp GRAVE  &none      &none     &none
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
         layerF {
@@ -257,20 +250,6 @@
             sensor-bindings =
                 <&inc_dec_kp C_VOL_UP C_VOL_DN>,
                 <&inc_dec_kp PG_UP PG_DN>;
-        };
-
-        layer_6 {
-            display-name = "Mix";
-            bindings = <
-&none  &none  &none           &mmv MOVE_UP    &none            &none                  &none  &none     &none         &none  &none  &none
-&none  &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none                  &none  &mkp MB1  &mkp MB2      &none  &none  &none
-&none  &none  &none           &none           &none            &none  &trans  &trans  &none  &none     &none         &none  &none  &none
-&none  &none  &none           &none           &none            &none                  &none  &none     &kp NUMBER_2  &none  &none  &none
-            >;
-
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp PG_DN PG_UP>;
         };
     };
 };
