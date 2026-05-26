@@ -166,7 +166,7 @@
 &kp ESC    &autoShift LS(Q) Q  &autoShift LS(W) W  &autoShift LS(E) E  &autoShift LS(R) R  &autoShift LS(T) T                &autoShift LS(Y) Y  &autoShift LS(U) U  &autoShift LS(I) I          &autoShift LS(O) O            &autoShift LS(SEMICOLON) SEMICOLON  &autoShift LS(BSLH) BSLH
 &kp TAB    &autoShift LS(A) A  &autoShift LS(S) S  &autoShift LS(D) D  &autoShift LS(F) F  &autoShift LS(G) G                &autoShift LS(H) H  &autoShift LS(J) J  &autoShift LS(K) K          &autoShift LS(L) L            &autoShift LS(P) P                  &kp BACKSPACE
 &kp LALT   &autoShift LS(Z) Z  &autoShift LS(X) X  &autoShift LS(C) C  &autoShift LS(V) V  &autoShift LS(B) B  &none  &none  &autoShift LS(N) N  &autoShift LS(M) M  &autoShift LS(COMMA) COMMA  &autoShift LS(PERIOD) PERIOD  &autoShift LS(SLASH) SLASH          &autoShift LS(SQT) SQT
-&kp LSHFT  &kp PAGE_UP         &kp PAGE_DOWN       &kp LCTRL           &kp LEFT_WIN        &lt 2 SPACE                       &lt 2 RIGHT_ALT     &mo 3               &mo 5                       &kp PAGE_UP                   &kp PAGE_DOWN                       &kp ENTER
+&kp LSHFT  &kp PAGE_UP         &kp PAGE_DOWN       &kp LCTRL           &lt 2 SPACE         &kp LEFT_WIN                      &lt 2 RIGHT_ALT     &mo 3               &mo 5                       &kp PAGE_UP                   &kp PAGE_DOWN                       &kp ENTER
             >;
 
             sensor-bindings =
@@ -177,10 +177,10 @@
         autooffLayer {
             display-name = "Base";
             bindings = <
-&kp ESC    &kp Q        &kp W          &kp E      &kp R         &kp T                      &kp Y            &kp U  &kp I      &kp O        &kp SEMI       &kp BSLH
-&kp TAB    &kp A        &kp S          &kp D      &kp F         &kp G                      &kp H            &kp J  &kp K      &kp L        &kp P          &kp BACKSPACE
-&kp LALT   &kp Z        &kp X          &kp C      &kp V         &kp B        &none  &none  &kp N            &kp M  &kp COMMA  &kp DOT      &kp FSLH       &kp APOS
-&kp LSHFT  &kp PAGE_UP  &kp PAGE_DOWN  &kp LCTRL  &kp LEFT_WIN  &lt 2 SPACE                &lt 2 RIGHT_ALT  &mo 3  &mo 5      &kp PAGE_UP  &kp PAGE_DOWN  &kp ENTER
+&kp ESC    &kp Q        &kp W          &kp E      &kp R        &kp T                       &kp Y            &kp U  &kp I      &kp O        &kp SEMI       &kp BSLH
+&kp TAB    &kp A        &kp S          &kp D      &kp F        &kp G                       &kp H            &kp J  &kp K      &kp L        &kp P          &kp BACKSPACE
+&kp LALT   &kp Z        &kp X          &kp C      &kp V        &kp B         &none  &none  &kp N            &kp M  &kp COMMA  &kp DOT      &kp FSLH       &kp APOS
+&kp LSHFT  &kp PAGE_UP  &kp PAGE_DOWN  &kp LCTRL  &lt 2 SPACE  &kp LEFT_WIN                &lt 2 RIGHT_ALT  &mo 3  &mo 5      &kp PAGE_UP  &kp PAGE_DOWN  &kp ENTER
             >;
 
             sensor-bindings =
@@ -188,17 +188,17 @@
                 <&inc_dec_kp PG_DN PG_UP>;
         };
 
-        Navi_layer {
+        Num_layer {
             display-name = "Navi";
             bindings = <
 &autoShift TILDE GRAVE  &none      &kp HOME                   &kp UP_ARROW    &kp END          &kp PAGE_UP                    &none  &autoShift LS(N7) N7              &autoShift LS(N8) N8              &autoShift LS(N9) N9              &autoShift LS(N0) N0  &none
 &kp CAPS                &kp EQUAL  &kp LEFT_ARROW             &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp PAGE_DOWN                  &none  &autoShift LS(NUMBER_4) NUMBER_4  &autoShift LS(N5) N5              &autoShift LS(NUMBER_6) NUMBER_6  &none                 &kp DEL
 &none                   &kp PLUS   &autoShift UNDER KP_MINUS  &kp ASTERISK    &kp SLASH        &none          &trans  &trans  &none  &autoShift LS(NUMBER_1) NUMBER_1  &autoShift LS(NUMBER_2) NUMBER_2  &autoShift LS(NUMBER_3) NUMBER_3  &none                 &none
-&none                   &none      &none                      &none           &trans           &mo 4                          &mo 4  &autoShift LS(NUMBER_0) NUMBER_0  &kp DOT                           &none                             &none                 &none
+&none                   &none      &none                      &none           &mo 4            &trans                         &mo 4  &autoShift LS(NUMBER_0) NUMBER_0  &kp DOT                           &none                             &none                 &none
             >;
         };
 
-        Mix_layer {
+        Mouse_layer {
             display-name = "Mix";
 
             // ------------------------------------------------------------------------------------------------------------
