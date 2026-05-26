@@ -196,6 +196,10 @@
 &none                   &kp PLUS   &autoShift UNDER KP_MINUS  &kp ASTERISK    &kp SLASH        &none          &trans  &trans  &none  &autoShift LS(NUMBER_1) NUMBER_1  &autoShift LS(NUMBER_2) NUMBER_2  &autoShift LS(NUMBER_3) NUMBER_3  &none                 &none
 &none                   &none      &none                      &none           &mo 4            &trans                         &mo 4  &autoShift LS(NUMBER_0) NUMBER_0  &kp DOT                           &none                             &none                 &none
             >;
+
+            sensor-bindings =
+                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
+                <&inc_dec_kp K_SCROLL_DOWN K_SCROLL_UP>;
         };
 
         Mouse_layer {
