@@ -165,8 +165,8 @@
             bindings = <
 &kp ESC    &autoShift LS(Q) Q  &autoShift LS(W) W  &autoShift LS(E) E  &autoShift LS(R) R  &autoShift LS(T) T                &autoShift LS(Y) Y  &autoShift LS(U) U  &autoShift LS(I) I          &autoShift LS(O) O            &autoShift LS(SEMICOLON) SEMICOLON  &autoShift LS(BSLH) BSLH
 &kp TAB    &autoShift LS(A) A  &autoShift LS(S) S  &autoShift LS(D) D  &autoShift LS(F) F  &autoShift LS(G) G                &autoShift LS(H) H  &autoShift LS(J) J  &autoShift LS(K) K          &autoShift LS(L) L            &autoShift LS(P) P                  &kp BACKSPACE
-&kp LALT   &autoShift LS(Z) Z  &autoShift LS(X) X  &autoShift LS(C) C  &autoShift LS(V) V  &autoShift LS(B) B  &none  &none  &autoShift LS(N) N  &autoShift LS(M) M  &autoShift LS(COMMA) COMMA  &autoShift LS(PERIOD) PERIOD  &autoShift LS(SLASH) SLASH          &autoShift LS(SQT) SQT
-&kp LSHFT  &kp PAGE_UP         &kp PAGE_DOWN       &kp LCTRL           &lt 2 SPACE         &kp LEFT_WIN                      &lt 2 RIGHT_ALT     &mo 3               &mo 5                       &kp PAGE_UP                   &kp PAGE_DOWN                       &kp ENTER
+&sk LALT   &autoShift LS(Z) Z  &autoShift LS(X) X  &autoShift LS(C) C  &autoShift LS(V) V  &autoShift LS(B) B  &none  &none  &autoShift LS(N) N  &autoShift LS(M) M  &autoShift LS(COMMA) COMMA  &autoShift LS(PERIOD) PERIOD  &autoShift LS(SLASH) SLASH          &autoShift LS(SQT) SQT
+&sk LSHFT  &kp PAGE_UP         &kp PAGE_DOWN       &sk LCTRL           &lt 2 SPACE         &kp LEFT_WIN                      &lt 2 RIGHT_ALT     &mo 3               &mo 5                       &kp PAGE_UP                   &kp PAGE_DOWN                       &kp ENTER
             >;
 
             sensor-bindings =
